@@ -4,7 +4,7 @@ $conf = array();
 $conf['base_url'] = "http://localhost/mvc/public";
 
 // database
-$conf['db_driver'] = 'mysqli';
+$conf['db_driver'] = 'postgres';
 
 // postgres
 // $conf['db_driver_postgres'] = 'postgres';
