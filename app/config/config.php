@@ -8,11 +8,11 @@ $conf['db_driver'] = 'postgres';
 
 // postgres
 // $conf['db_driver_postgres'] = 'postgres';
-$conf['db_host_postgres'] = 'localhost';
+$conf['db_host_postgres'] = '192.168.1.8';
 $conf['db_username_postgres'] = 'postgres';
 $conf['db_password_postgres'] = 'sembarang';
-$conf['db_name_postgres'] = 'test';
-$conf['db_port_postgres'] = '5432';
+$conf['db_name_postgres'] = 'delasalle_dev';
+$conf['db_port_postgres'] = '5433';
 
 // mysqli
 // $conf['db_driver_mysqli'] = 'mysqli';

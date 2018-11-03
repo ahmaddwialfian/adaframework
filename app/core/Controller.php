@@ -3,7 +3,7 @@
 /**
  * 
  */
-class Controller
+class Controller extends Api
 {
 	protected $model = '';
 	protected $method = '';
@@ -30,6 +30,11 @@ class Controller
 		require_once '../app/models/' . $model . '.php';
 
 		return new $model;
+	}
+
+	public function api_content($url, $request)
+	{
+		return $this->getContent($url, $request);
 	}
 
 }

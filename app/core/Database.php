@@ -50,6 +50,10 @@ class Database
 		return $data;
 	}
 
+	public function debug($debug = false){
+        $this->conn->debug = $debug;
+	}	
+
 }
 
 ?>
