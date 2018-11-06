@@ -12,14 +12,20 @@ class App
 	public function __construct()
 	{
 		$url = $this->parseURL();
+		list($n_controller,$n_method) = explode("/", DEFAULT_ROUTE);
+
+		if(!empty($n_controller))
+			$this->controller = $n_controller;
+		if(!empty($n_method))
+			$this->method = $n_method;
 
 		// controller
-		if(file_exists('../app/controllers/' . $url[0] . '.php')){
+		if(file_exists('app/controllers/' . $url[0] . '.php')){
 			$this->controller = $url[0];
 			unset($url[0]);
 		}
 
-		require_once '../app/controllers/' . $this->controller . '.php';
+		require_once 'app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
 
 		//method

@@ -15,7 +15,7 @@ class Database
 
 	function __construct()
 	{
-		require_once('../app/includes/adodb5/adodb.inc.php');
+		require_once('app/includes/adodb5/adodb.inc.php');
 
 		eval('$this->host = DB_HOST_'.strtoupper($this->driver).';');
 		eval('$this->user = DB_USERNAME_'.strtoupper($this->driver).';');

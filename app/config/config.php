@@ -1,7 +1,7 @@
 <?php 
 
 $conf = array();
-$conf['base_url'] = "http://localhost/mvc/public";
+$conf['base_url'] = "http://localhost/adaframework/";
 
 // database
 $conf['db_driver'] = 'postgres';
@@ -22,6 +22,7 @@ $conf['db_password_mysqli'] = 'sembarang';
 $conf['db_name_mysqli'] = 'wedding';
 $conf['db_port_mysqli'] = '3306';
 
+$conf['default_route'] = '';
 
 foreach ($conf as $k => $v) {
 	eval('define("' . strtoupper($k) .'", "' . $v . '");');

@@ -22,12 +22,12 @@ class Controller extends Api
 			}
 		}
 
-		require_once '../app/views/' . $location . '.php';
+		require_once 'app/views/' . $location . '.php';
 	}
 
 	public function model($model)
 	{
-		require_once '../app/models/' . $model . '.php';
+		require_once 'app/models/' . $model . '.php';
 
 		return new $model;
 	}
