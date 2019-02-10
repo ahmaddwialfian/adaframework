@@ -11,7 +11,7 @@ class Database
 	private $dbname;// = DB_NAME;
 	private $port;// = DB_PORT;
 
-	private $conn;
+	public $conn;
 
 	function __construct()
 	{
@@ -23,35 +23,18 @@ class Database
 		eval('$this->dbname = DB_NAME_'.strtoupper($this->driver).';');
 		eval('$this->port = DB_PORT_'.strtoupper($this->driver).';');
 
-        $connect = ADONewConnection($this->driver);
-        
-        if($this->driver == 'postgres'){
-        	$connect->Connect('host=' . $this->host . ' port=' . $this->port . ' dbname=' . $this->dbname . ' user=' . $this->user . ' password=' . $this->pass);
-        }
-       	else if($this->driver == 'mysqli'){
-        	$connect->Connect($this->host,$this->user,$this->pass,$this->dbname);
-       	}
+		$connect = ADONewConnection($this->driver);
+		
+		if($this->driver == 'postgres'){
+			$connect->Connect('host=' . $this->host . ' port=' . $this->port . ' dbname=' . $this->dbname . ' user=' . $this->user . ' password=' . $this->pass);
+		}
+		else if($this->driver == 'mysqli'){
+			$connect->Connect($this->host,$this->user,$this->pass,$this->dbname);
+		}
 
-        $connect->SetFetchMode(ADODB_FETCH_ASSOC);
+		$connect->SetFetchMode(ADODB_FETCH_ASSOC);
 
-        $this->conn = $connect;
-	}
-
-	public function getArray($query)
-	{
-        $data = $this->conn->getArray($query);
-
-        return $data;
-	}
-
-	public function getRow($query){
-        $data = $this->conn->getRow($query);
-
-		return $data;
-	}
-
-	public function debug($debug = false){
-        $this->conn->debug = $debug;
+		$this->conn = $connect;
 	}	
 
 }

@@ -11,6 +11,7 @@ class App
 	
 	public function __construct()
 	{
+		// mengubah url menjadi variabel" yang di butuhkan
 		$url = $this->parseURL();
 		list($n_controller,$n_method) = explode("/", DEFAULT_ROUTE);
 

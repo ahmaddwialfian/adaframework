@@ -1,26 +1,18 @@
 <?php 
 
 $conf = array();
+$conf['site_id'] = "ADA Framework";
 $conf['base_url'] = "http://localhost/adaframework/";
 
 // database
 $conf['db_driver'] = 'postgres';
 
-// postgres
-// $conf['db_driver_postgres'] = 'postgres';
-$conf['db_host_postgres'] = '192.168.1.8';
-$conf['db_username_postgres'] = 'postgres';
-$conf['db_password_postgres'] = 'sembarang';
-$conf['db_name_postgres'] = 'delasalle_dev';
-$conf['db_port_postgres'] = '5433';
+$conf['db_host_' . $conf['db_driver']] = 'localhost';
+$conf['db_username_' . $conf['db_driver']] = 'postgres';
+$conf['db_password_' . $conf['db_driver']] = 'sembarang';
+$conf['db_name_' . $conf['db_driver']] = 'delasalle_dev';
+$conf['db_port_' . $conf['db_driver']] = '5432';
 
-// mysqli
-// $conf['db_driver_mysqli'] = 'mysqli';
-$conf['db_host_mysqli'] = 'localhost';
-$conf['db_username_mysqli'] = 'root';
-$conf['db_password_mysqli'] = 'sembarang';
-$conf['db_name_mysqli'] = 'wedding';
-$conf['db_port_mysqli'] = '3306';
 
 $conf['default_route'] = '';
 

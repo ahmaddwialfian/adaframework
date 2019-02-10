@@ -13,13 +13,15 @@ class About extends Controller
 
 	function index(){
 		$data = array();
-		$data['nim'] = '201801001';
-		$data['act'] = 'login';
-		$data['token'] = '1';
+		// $data['nim'] = '201801001';
+		$data['act'] = 'getUser';
+		$data['token'] = '1234567890';
+		$data['username'] = 'admin';
+		$data['password'] = 'admin:DL5';
 
 		$request = json_encode($data);
 
-		$url = 'http://127.0.0.1/sahidlokal/service/sevimapay.php';
+		$url = 'http://127.0.0.1/dlsu/service/sevimapay_mobile.php';
 		$response = $this->api_content($url, $request);
 
 		print_r($response);

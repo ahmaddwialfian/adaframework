@@ -5,18 +5,15 @@
  */
 class M_home extends Model
 {
-	private $table = 'gate.sc_user';
-	private $db;
-
-	function __construct()
-	{
-		$this->db = new Database;
-	}
-
+	protected static $table = 'sc_user';
+	protected static $schema = 'gate';
+	protected static $key = 'userid';
+	protected static $order = 'userid';
+	
 	public function getUser()
 	{
-		$array = $this->db->getArray('select * from ' . $this->table . ' limit 50');
-		$row = $this->db->getRow('select * from ' . $this->table . ' limit 50');
+		$array = $this->getList();
+		$row = $this->getData('3294');
 
 		return array($array,$row);
 	}
