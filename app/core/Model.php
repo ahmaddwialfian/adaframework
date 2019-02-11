@@ -126,5 +126,35 @@ class Model
 		$limitSql = " limit ".$limit;
 		return $limitSql;
 	}
+
+	public function insert($data, $returning = false){
+		$col = $this->db->SelectLimit('select 1 from '.$this->getTable(),1);
+		$sql = $this->db->GetInsertSQL($col, $data);
+
+		if(!empty($key))
+			$sql .= " returning " . static::$key;
+
+		$rec = $this->db->Execute($sql);
+
+		if(empty($returning))
+			return $this->db->ErrorNo();
+		else
+			return array($this->db->ErrorNo(), $rec->fields);
+	}
+
+	public function update($data, $keys, $returning = false){
+		$col = $this->db->SelectLimit('select * from ' . $this->getTable() . ' where ' .implode(' and ', $this->getKey($key)));
+		$sql = $this->db->GetUpdateSQL($col, $data);
+
+		if(!empty($returning))
+			$sql .= " returning " . static::$key;
+
+		$rec = $this->db->Execute($sql);
+
+		if(empty($returning))
+			return $this->db->ErrorNo();
+		else
+			return array($this->db->ErrorNo(), $rec->fields);
+	}
 }
  ?>
